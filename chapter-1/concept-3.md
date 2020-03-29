@@ -10,7 +10,7 @@ window.setTimeout = function(callback, delay) {
   // 调用原始API但是在zone内包装回调
   return originalSetTimeout(
     // 包装回调方法
-    Zone.current.wrap(callback), 
+    Zone.current.wrap(callback),
     delay
   );
 }
