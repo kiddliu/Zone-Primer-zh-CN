@@ -27,7 +27,7 @@ Zone.prototype.wrap = function(callback) {
 };
 ```
 
-&emsp;&emsp;核心点：
+&emsp;&emsp;**核心点：**
 
 * Zone只会打一次本地补丁。
 * 进入、离开zone只有修改`Zone.current`值的代价
@@ -51,7 +51,7 @@ Promise.prototype.then = function(callback) {
 };
 ```
 
-&emsp;&emsp;核心点：
+&emsp;&emsp;**核心点：**
 
 * Promise处理自己的异常，于是无法使用`Zone.prototype.wrap()`。（我们可以有不同的API，但是promise是这条规则的例外，所以我不觉得创建它自己的API有合理性。）
 * Promise API很大，所以在这个例子中没有全部展示出来。

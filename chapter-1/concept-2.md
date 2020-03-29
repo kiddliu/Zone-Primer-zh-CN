@@ -46,7 +46,7 @@ zoneALocationRestored:
   at Zone.prototype.run()[<root> -> zoneA]
 ```
 
-&emsp;&emsp;核心点：
+&emsp;&emsp;**核心点：**
 
 * 当异步任务被调度时，回调函数会执行在调用这个异步API时就存在的同一个zone内。这使得zone可以在多个异步调用之间被跟踪。
 
@@ -92,7 +92,7 @@ appZone1.run(() => {
 });
 ```
 
-&emsp;&emsp;核心点：
+&emsp;&emsp;**核心点：**
 
 * 对于promise来说，thenCallback是调用在`.then()`调用时起效的zone内的。
   * 或者，对于thenCallback我们可以使用另一个zone，比如创建promise的zone或是完成promise的zone。这二者都不是一个好选择，毕竟promise可以在第三方库创建、完成，它们也都可以有自己的zone。最终产生的promise将被传入app，app也可以有自己的zone。如果app注册`.then()`在自己的zone，那么它会期望传递的是自己的zone。

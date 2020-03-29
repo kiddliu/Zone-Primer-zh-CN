@@ -36,7 +36,7 @@ function main() {
 main();
 ```
 
-&emsp;&emsp;核心点：
+&emsp;&emsp;**核心点：**
 
 * 对`Zone.current`赋值是一个运行时错误。改变`Zone.current`的唯一方式是通过`Zone.prototype.run()`、`Zone.prototype.runGuarded()`或者`Zone.prototype.runTask()`。在之后的内容中，方便起见我们只会使用`Zone.prototype.run`。
 * 一个给定的堆栈帧有且只有一个对应的zone。之上或之下的堆栈帧一定有一样的zone，除非这一帧是`Zone.prototype.run()`。
