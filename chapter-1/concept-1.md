@@ -44,4 +44,21 @@ main();
 
 ## 堆栈帧
 
-&emsp;&emsp;理解一个给定的堆栈帧有且只有一个对应的zone很重要（比如，函数的上半部分与下半部分运行在不同的zone中是不可能的。而同一个函数由于调用方式的不同有不同的zone是完全可能的）。Zone只能通过进入或是退出`Zone.prototype.run()`进入或是离开。为了更好的可见性，zone会更新堆栈帧，显示相关的zone。下边是来自上边示例的两个堆栈快照，其中的每个堆栈帧都显示了对应的zone。
+&emsp;&emsp;理解一个给定的堆栈帧有且只有一个对应的zone很重要（比如，函数的上半部分与下半部分运行在不同的zone中是不可能的。而同一个函数由于调用方式的不同有不同的zone是完全可能的）。只能通过进入或是退出`Zone.prototype.run()`进入或是离开zone。为了更好的可见性，zone会更新堆栈帧，显示相关的zone。下边是来自上边示例的两个堆栈快照，其中的每个堆栈帧都显示了对应的zone。
+
+```log
+outerLocation:
+  at fnOuter()[zoneA];
+  at Zone.prototype.run()[<root> -> zoneA]
+  at main()[<root>]
+  at <anonymous>()[<root>]
+
+
+innerLocation:
+  at fnInner()[<root>];
+  at Zone.prototype.run()[zoneA -> <root>]
+  at fnOuter()[zoneA];
+  at Zone.prototype.run()[<root> -> zoneA]
+  at main()[<root>]
+  at <anonymous>()[<root>]
+```
