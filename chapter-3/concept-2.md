@@ -44,7 +44,7 @@ appZone.run(function myApp() {
 
 ```log
 Zone: appZone Intercepting zone: logZone enter
-Zone: appZone Hello World! 
+Zone: appZone Hello World!
 Zone: appZone Intercepting zone: timingZone duration 0.123
 Zone: appZone Intercepting zone: logZone leave
 ```
